@@ -1,0 +1,9 @@
+#ifndef _AZINAPP_H_
+#define _AZINAPP_H_
+
+#include <config.h>
+#include <VP_Api/vp_api_thread_helper.h>
+
+PROTO_THREAD_ROUTINE(azin_app, data);
+
+#endif // _AZINAPP_H_

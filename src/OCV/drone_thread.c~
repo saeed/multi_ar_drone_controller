@@ -1,0 +1,62 @@
+/*
+ * @azin_app.c
+ * @author marc-olivier.dzeukou@parrot.com
+ * @date 2007/07/27
+ *
+ * ihm vision thread implementation
+ *
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <termios.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <unistd.h>
+
+#include <sys/time.h>
+#include <time.h>
+
+#include <VP_Api/vp_api.h>
+#include <VP_Api/vp_api_error.h>
+#include <VP_Api/vp_api_stage.h>
+#include <VP_Api/vp_api_picture.h>
+#include <VP_Stages/vp_stages_io_file.h>
+#include <VP_Stages/vp_stages_i_camif.h>
+
+#include <config.h>
+#include <VP_Os/vp_os_print.h>
+#include <VP_Os/vp_os_malloc.h>
+#include <VP_Os/vp_os_delay.h>
+#include <VP_Stages/vp_stages_yuv2rgb.h>
+#include <VP_Stages/vp_stages_buffer_to_picture.h>
+#include <VLIB/Stages/vlib_stage_decode.h>
+
+#include <ardrone_tool/ardrone_tool.h>
+#include <ardrone_tool/Com/config_com.h>
+
+
+//ARDroneLib
+#include <utils/ardrone_time.h>
+#include <ardrone_tool/Navdata/ardrone_navdata_client.h>
+#include <ardrone_tool/Control/ardrone_control.h>
+#include <ardrone_tool/UI/ardrone_input.h>
+
+//Common
+#include <config.h>
+#include <ardrone_api.h>
+
+//Local
+#include "OCV/drone_thread.h"
+
+
+DEFINE_THREAD_ROUTINE(LocatorThread, data)
+{
+    PRINT("Background Locator\n\n");
+    main2o();
+  
+    
+
+    return (THREAD_RET)0;
+}
+
