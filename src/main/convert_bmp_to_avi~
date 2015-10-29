@@ -1,2 +1,0 @@
-ffmpeg -f image2 -r 20 -i %04d.bmp ./out.mov
-
